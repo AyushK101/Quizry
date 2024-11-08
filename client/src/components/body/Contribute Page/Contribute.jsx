@@ -33,9 +33,9 @@ const Contribute = () => {
       {
         label: "Stats",
         data: [
-          stats.AcceptedQuestions,
-          stats.DeclinedQuestions,
-          stats.pendingQuestion,
+          stats?.AcceptedQuestions,
+          stats?.DeclinedQuestions,
+          stats?.pendingQuestion,
         ],
         backgroundColor: [
           "rgb(255, 99, 132)",
@@ -174,7 +174,7 @@ const Contribute = () => {
           </table>
         </div>
         <div className="top-contributors">
-          <h3>Total Questions Posted: {stats.TotalQuestions}</h3>
+          <h3>Total Questions Posted: {stats?.TotalQuestions}</h3>
           <Doughnut
             data={state}
             options={{

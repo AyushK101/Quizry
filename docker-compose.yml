@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  mongodbservice:
+    image: mongo
+    container_name: quizry_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - quizry_db_volume:/data/db
+
+  backendservice:
+    build: .
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./.env
+    depends_on:
+      - mongodbservice
+    environment:
+      MONGODB_URL: mongodb://mongodbservice:27017/quizry_db
+
+  clientservice:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backendservice
+
+volumes:
+  quizry_db_volume:

@@ -27,7 +27,7 @@ const Header = (props) => {
     "click",
     function (e) {
       let container = document.getElementById("drop-nav");
-      if (!container.contains(e.target)) {
+      if (!container?.contains?.(e.target)) {
         setDd(false);
       }
     },
@@ -38,7 +38,7 @@ const Header = (props) => {
     "click",
     function (e) {
       let container = document.getElementById("navbar");
-      if (!container.contains(e.target)) {
+      if (!container?.contains?.(e.target)) {
         setIsOpen(false);
       }
     },
